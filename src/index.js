@@ -21,6 +21,19 @@ const testObject = {
   "likes": 5
 };
 
+const baseURL = "http://localhost:3000/toys"
+
+function getToys() {
+  fetch(baseURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then((toyData) => toyData.forEach(createCards))
+}
+
+
+
+
 
 //Write function to render
 function createCards(toy) {
