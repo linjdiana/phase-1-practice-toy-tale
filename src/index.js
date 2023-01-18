@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
       toyFormContainer.style.display = "none";
     }
   });
+  getToys();
 });
+
 
 const testObject = {
   "id": 1,
@@ -33,8 +35,6 @@ function getToys() {
 
 
 
-
-
 //Write function to render
 function createCards(toy) {
   const newCard = document.createElement("div");
@@ -45,10 +45,15 @@ function createCards(toy) {
   toyImage.src = toy.image;
   toyImage.className = "toy-avatar";
   const toyLikes = document.createElement("p");
-  toyLikes.textContent = `${toy.likes} likes`;
+  toyLikes.textContent = parseInt(toy.likes) + " Likes"
   const likeBtn = document.createElement("button");
   likeBtn.className = "like-btn";
   likeBtn.id = toy.id;
+
+  likeBtn.addEventListener("click", function() {
+    toyLikes.textContent = toy.likes++ + " Likes";
+  });
+
   document.body.append(newCard);
   newCard.appendChild(toyName);
   newCard.appendChild(toyImage);
