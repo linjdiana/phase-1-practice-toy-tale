@@ -13,3 +13,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+const testObject = {
+  "id": 1,
+  "name": "Woody",
+  "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
+  "likes": 5
+};
+
+
+//Write function to render
+function createCards(toy) {
+  const newCard = document.createElement("div");
+  newCard.className = "card";
+  const toyName = document.createElement("h2");
+  toyName.textContent = toy.name;
+  const toyImage = document.createElement("img");
+  toyImage.src = toy.image;
+  toyImage.className = "toy-avatar";
+  const toyLikes = document.createElement("p");
+  toyLikes.textContent = `${toy.likes} likes`;
+  const likeBtn = document.createElement("button");
+  likeBtn.className = "like-btn";
+  likeBtn.id = toy.id;
+  document.body.append(newCard);
+  newCard.appendChild(toyName);
+  newCard.appendChild(toyImage);
+  newCard.appendChild(toyLikes);
+  newCard.appendChild(likeBtn);
+}
